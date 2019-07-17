@@ -1,0 +1,130 @@
+<div class="container">
+    <div class="row">
+
+        <!-- Latest Posts -->
+        <main class="post blog-post col-lg-8">
+            <div class="container">
+                {{!-- Post --}}
+                <div class="post-single">
+                    <div class="post-thumbnail"><img src="/uploads/{{post.file}}" alt="/uploads/{{post.file}}"
+                            class="img-fluid">
+                    </div>
+                    {{!-- Post details - category --}}
+                    <div class="post-details">
+                        <div class="post-meta d-flex justify-content-between">
+                            <div class="date meta-last">{{generateDate date 'MMMM D, YYYY'}}</div>
+                            <div class="category"><a href="#">category here</a></div>
+                        </div>
+
+                        <h1>{{post.title}}<a href="#"><i class="fa fa-bookmark-o"></i></a></h1>
+                        <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#"
+                                class="author d-flex align-items-center flex-wrap">
+                                {{!-- post author --}}
+                                <div class="avatar"><img
+                                        src="../../../d19m59y37dris4.cloudfront.net/blog/1-2-1/img/avatar-1.jpg"
+                                        alt="..." class="img-fluid"></div>
+                                <div class="title"><span>{{post.user.firstName}} {{post.user.lastName}}</span></div>
+                            </a>
+                            <div class="d-flex align-items-center flex-wrap">
+                                <div class="date"><i class="icon-clock"></i> 2 months ago</div>
+                                <div class="views"><i class="icon-eye"></i> 500</div>
+                                <div class="comments meta-last"><i class="icon-comment"></i>12</div>
+                            </div>
+                        </div>
+                        <div class="post-body">
+                            <p>{{post.body}}</p>
+                        </div>
+
+                        {{!-- Comment tags --}}
+                        {{!-- <div class="post-tags"><a href="#" class="tag">#Business</a><a href="#"
+                                class="tag">#Tricks</a><a href="#" class="tag">#Financial</a><a href="#"
+                                class="tag">#Economy</a></div> --}}
+
+
+
+
+
+
+                        
+                    {{#each post.comments}}
+                        {{!-- Comment posts --}}
+                        <div class="post-comments">
+                            <header>
+                                <h3 class="h6">Post Comments<span class="no-of-comments">(1)</span></h3>
+                            </header>
+
+                      
+
+                                <div class="comment">
+                                    <div class="comment-header d-flex justify-content-between">
+                                        <div class="user d-flex align-items-center">
+                                            <div class="image"><img
+                                                    src="https://d19m59y37dris4.cloudfront.net/blog/1-2-1/img/user.svg"
+                                                    alt="..." class="img-fluid rounded-circle"></div>
+                                            <div class="title"><strong>{{ user.firstName }} {{ user.lastName }}</strong>
+                                            <span class="date">{{generateDate date 'MMMM D, YYYY'}}</span></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="comment-body">
+                                        <p>{{body}}</p>
+                                    </div>
+                                </div>
+
+                              
+
+                        </div>
+                    {{/each}}
+
+
+
+
+
+
+
+                        {{#if user}}
+
+                        {{#if post.allowComments}}
+
+                        {{!-- Comment form --}}
+                        <div class="add-comment">
+                            <header>
+                                <h3 class="h6">Leave a reply</h3>
+                            </header>
+                            <form action="/admin/comments" method="post" class="commenting-form">
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <textarea name="body" id="body" placeholder="Type your comment"
+                                            class="form-control"></textarea>
+                                        <input type="hidden" name="id" value="{{post.id}}">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <button type="submit" class="btn btn-secondary">Submit Comment</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        {{else}}
+
+                        <h6>Comments are not allowed for this post.</h6>
+
+                        {{/if}}
+
+                        {{else}}
+
+                        <p>To comment, please <a href="/login">login</a></p>
+
+                        {{/if}}
+
+
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+        {{> home/sidebar}}
+    </div>
+</div>

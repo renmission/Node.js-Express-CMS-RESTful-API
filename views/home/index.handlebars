@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <!-- Latest Posts -->
+        <main class="posts-listing col-lg-8">
+            <div class="container">
+                <div class="row">
+
+
+                    {{!-- blog posts --}}
+                    {{#each posts}}
+                    <!-- post -->
+                    <div class="post col-xl-12">
+                        <div class="post-thumbnail"><a href="/post/{{slug}}"><img src="/uploads/{{file}}" alt="..."
+                                    class="img-fluid"></a></div>
+                        <div class="post-details">
+                            <div class="post-meta d-flex justify-content-between">
+                                <div class="date meta-last">{{generateDate date 'MMMM D, YYYY'}}</div>
+                                <div class="category"><a href="#">CATEGORY HERE!</a></div>
+                            </div>
+                            <a href="/post/{{slug}}">
+                                <h3 class="h4">{{title}}</h3>
+                            </a>
+                            <p class="text-muted">{{body}}</p>
+                            <footer class="post-footer d-flex align-items-center"><a href="#"
+                                    class="author d-flex align-items-center flex-wrap">
+                                    <div class="avatar"><img src="" alt="..." class="img-fluid"></div>
+                                    <div class="title"><span>John Doe</span></div>
+                                </a>
+                                <div class="date"><i class="icon-clock"></i> 2 months ago</div>
+                                <div class="comments meta-last"><i class="icon-comment"></i>12</div>
+                            </footer>
+                        </div>
+                    </div>
+                    {{/each}}
+                    {{!-- /blog posts --}}
+
+
+
+                </div>
+                <!-- Pagination -->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination pagination-template d-flex justify-content-center">
+
+                        {{!-- imported from helpers --}}
+                          {{#paginate current=current pages=pages}}{{/paginate}}
+                    </ul>
+                </nav>
+            </div>
+        </main>
+
+
+        {{> home/sidebar}}
+
+
+    </div>
+</div>

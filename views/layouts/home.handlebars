@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ren Mission Jr.</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom icon font-->
+    <link rel="stylesheet" href="/css/fontastic.css">
+    <!-- Google fonts - Open Sans-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <!-- Fancybox-->
+    <link rel="stylesheet" href="/css/fancybox/jquery.fancybox.min.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/css/custom.css">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    {{> home/home-nav }}
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <br>
+
+
+        {{> home/form-msgs}}
+
+        {{{ body }}}
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    {{> home/home-footer }}
+
+
+    <!-- JavaScript files-->
+    <script src="/js/jquery/jquery.min.js"></script>
+    <script src="/js/popper.min.js"> </script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"> </script>
+    <script src="/js/jquery.fancybox.min.js"></script>
+
+</body>
+
+</html>
