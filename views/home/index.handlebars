@@ -23,11 +23,12 @@
                             <p class="text-muted">{{body}}</p>
                             <footer class="post-footer d-flex align-items-center"><a href="#"
                                     class="author d-flex align-items-center flex-wrap">
-                                    <div class="avatar"><img src="" alt="..." class="img-fluid"></div>
-                                    <div class="title"><span>John Doe</span></div>
+                                    <div class="avatar"><img src="https://image.flaticon.com/icons/svg/149/149071.svg"
+                                            alt="..." class="img-fluid"></div>
+                                    <div class="title"><span>{{firstName}} {{lastName}}</span></div>
                                 </a>
-                                <div class="date"><i class="icon-clock"></i> 2 months ago</div>
-                                <div class="comments meta-last"><i class="icon-comment"></i>12</div>
+                                {{!-- <div class="date"><i class="icon-clock"></i> 2 months ago</div>
+                                <div class="comments meta-last"><i class="icon-comment"></i>12</div> --}}
                             </footer>
                         </div>
                     </div>
@@ -42,7 +43,7 @@
                     <ul class="pagination pagination-template d-flex justify-content-center">
 
                         {{!-- imported from helpers --}}
-                          {{#paginate current=current pages=pages}}{{/paginate}}
+                        {{#paginate current=current pages=pages}}{{/paginate}}
                     </ul>
                 </nav>
             </div>
