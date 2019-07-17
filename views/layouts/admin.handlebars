@@ -9,6 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link rel="shortcut icon"
+        href="https://i5.walmartimages.com/asr/cad71fcd-0825-45bd-b643-cbf70906d913_1.7fe5272648afefaad022ccf073b0828e.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF"
+        type="image/x-icon">
+    <link rel="icon"
+        href="https://i5.walmartimages.com/asr/cad71fcd-0825-45bd-b643-cbf70906d913_1.7fe5272648afefaad022ccf073b0828e.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF"
+        type="image/x-icon">
+
     <title>CMS</title>
 
     <!-- Custom fonts for this template-->
@@ -131,13 +138,13 @@
     <!-- Bootstrap switch js-->
     <script src="/js/bootstrap-switch.min.js"></script>
 
-     <!-- Toastr cdn-->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- Toastr cdn-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-    <!-- Chartjs cdn-->  
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <!-- Chartjs cdn-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 
-     <script>
+    <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
@@ -145,53 +152,53 @@
                 labels: ['Users', 'Post', 'Comments', 'Categories'],
                 datasets: [{
                     label: '# of Votes',
-                    data: [{{userCount}}, {{postCount}}, {{commentCount}}, {{categoryCount}}],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
+                    data: [{{ userCount }}, {{ postCount }}, {{ commentCount }}, { { categoryCount } }],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+                borderWidth: 1
                 }]
             },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
             }
+        }
         });
-        </script>
+    </script>
 
 
     <script>
         $("[name='approveComment']").bootstrapSwitch();
 
-        $(document).ready( ()=> {
-            $("[name='approveComment']").on('switchChange.bootstrapSwitch', function(e, data) {
+        $(document).ready(() => {
+            $("[name='approveComment']").on('switchChange.bootstrapSwitch', function (e, data) {
 
                 const id = $(this).attr('data-id');
-                
+
                 $.ajax({
                     type: "POST",
                     url: '/admin/comments/approve-comment',
-                    data: {id: id, approveComment: data},
+                    data: { id: id, approveComment: data },
                     cache: false,
-                    success: (data)=> {
+                    success: (data) => {
 
                         toastr.success('RECORD Updated');
 
