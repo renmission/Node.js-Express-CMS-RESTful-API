@@ -15,7 +15,7 @@
                         <div class="post-details">
                             <div class="post-meta d-flex justify-content-between">
                                 <div class="date meta-last">{{generateDate date 'MMMM D, YYYY'}}</div>
-                                <div class="category"><a href="#">CATEGORY HERE!</a></div>
+                                {{!-- <div class="category"><a href="#">CATEGORY HERE!</a></div> --}}
                             </div>
                             <a href="/post/{{slug}}">
                                 <h3 class="h4">{{title}}</h3>
@@ -25,7 +25,8 @@
                                     class="author d-flex align-items-center flex-wrap">
                                     <div class="avatar"><img src="https://image.flaticon.com/icons/svg/149/149071.svg"
                                             alt="..." class="img-fluid"></div>
-                                    <div class="title"><span>{{firstName}} {{lastName}}</span></div>
+                                    <div class="title">
+                                        <span>{{#if user}}{{user.firstName}}{{user.lastName}}{{/if}}</span></div>
                                 </a>
                                 {{!-- <div class="date"><i class="icon-clock"></i> 2 months ago</div>
                                 <div class="comments meta-last"><i class="icon-comment"></i>12</div> --}}

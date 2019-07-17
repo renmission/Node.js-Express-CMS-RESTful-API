@@ -89,6 +89,7 @@ router.post('/create', (req, res) => {
             file: filename
         });
 
+
         newPost.save().then(savePost => {
 
             req.flash('success_message', `Post ${savePost.title} was created successfully`);
