@@ -41,6 +41,8 @@ router.get('/my-posts', (req, res) => {
         })
 })
 
+
+//Create post
 router.post('/create', (req, res) => {
 
     //form validation
@@ -142,7 +144,7 @@ router.put('/edit/:id', (req, res) => {
             filename = Date.now() + '-' + file.name;
             post.file = filename;
 
-            let dirUploads = './public/uploads/';
+            let dirUploads = '../public/uploads/';
 
             file.mv(dirUploads + filename, (err) => {
                 if (err) throw err;
